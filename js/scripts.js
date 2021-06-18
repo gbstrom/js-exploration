@@ -20,15 +20,16 @@ let Psyduck = {
 
 let pokemonList = [Abra, Doduo, Psyduck];
 
-//This section lists the pokemon's names with their heights
+//This section lists the pokemon's names with their heights with a forEach loop.
 
-for (let i = 0; i < pokemonList.length; i++) {
-  document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ');
+function displayDetails(item){
+  document.write('<p>' + item.name + ' (type: ' + item.type + ') (height: ' + item.height + ') ');
+  if (item.height > 9){
+    document.write(' - Wow, that\'s big!');
+  };
+  document.write('</p>');
+};
 
-//This section adds the comment 'Wow, that's big!' for Pokemon taller than 9
-
-  if (pokemonList[i].height > 9) {
-    document.write(' - Wow, that\'s big! ');
-  }
-  document.write('<br>');
-}
+pokemonList.forEach(
+  displayDetails
+)
