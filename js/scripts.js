@@ -1,26 +1,41 @@
-// This section creates the pokemonList array
+let pokemonRepository = (function () {
+  let pokemonList = [
 
-let Abra = {
-  name: 'Abra',
-  height: 8,
-  type: ['psychic']
-};
+    {
+      name: 'Abra',
+      height: 8,
+      type: ['psychic']
+    },
 
-let Doduo = {
-  name: 'Doduo',
-  height: 10,
-  type: ['normal', 'flying']
-};
+    {
+      name: 'Doduo',
+      height: 10,
+      type: ['normal', 'flying']
+    },
 
-let Psyduck = {
-  name: 'Psyduck',
-  height: 5,
-  type: ['water']
-};
+    {
+      name: 'Psyduck',
+      height: 5,
+      type: ['water']
+    }
+  ];
 
-let pokemonList = [Abra, Doduo, Psyduck];
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
 
-//This section lists the pokemon's names with their heights with a forEach loop.
+  function getAll() {
+    return pokemonList;
+  }
+
+  return{
+    add: add,
+    getAll: getAll
+  };
+})()
+
+
+//This section lists the Pokemons' names with their heights with a forEach loop.
 
 function displayDetails(item){
   document.write('<p>' + item.name + ' (type: ' + item.type + ') (height: ' + item.height + ') ');
@@ -30,6 +45,6 @@ function displayDetails(item){
   document.write('</p>');
 };
 
-pokemonList.forEach(
+pokemonRepository.getAll().forEach(
   displayDetails
 )
