@@ -6,6 +6,35 @@ body {
   background-color: #fff;
 }
 
-p {
-  padding: 0 40px;
+ul {
+  list-style-type: none;
+  width: 50%;
+  margin: auto;
+}
+
+.pokemon-button {
+  border: none;
+  display: inline-block;
+  font-family: inherit;
+  background-color: #afeeee;
+  color: #000;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  border-bottom: 1px solid #000;
+  transition: 0.2s opacity;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media all and (max-width: 500px) {
+  .pokemon-button {
+    font-size: 12px;
+  }
+}
+
+@media all and (min-width: 500px) and (max-width: 750px){
+  .pokemon-button {
+    font-size: 14px;
+  }
 }
