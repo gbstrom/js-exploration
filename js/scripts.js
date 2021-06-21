@@ -1,3 +1,5 @@
+// this is an IIFE that wraps up much of my code to minimize side-effects.
+
 let pokemonRepository = (function () {
   let pokemonList = [
 
@@ -38,6 +40,9 @@ let pokemonRepository = (function () {
   }
 
   function addListItem(pokemon){
+
+    //this section creates the buttons with details about the pokemon
+
     let unorderedList = document.querySelector('.pokemon-ul');
     let listItem = document.createElement('li');
     let button = document.createElement('button');
@@ -45,7 +50,21 @@ let pokemonRepository = (function () {
     button.classList.add('pokemon-button');
     listItem.appendChild(button);
     unorderedList.appendChild(listItem);
+
+    //this section makes clicking the buttons send pokemon details to the console
+
+    button.addEventListener('click', function(){
+      showDetails(pokemon);
+    });
   }
+
+  //this function works within the addListItem function above to send pokemon details to the console when a button is clicked
+
+  function showDetails(pokemon){
+    console.log(pokemon)
+  }
+
+  //this section makes these functions callable outside the IIFE.
 
   return{
     add: add,
