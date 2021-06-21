@@ -10,7 +10,7 @@ let pokemonRepository = (function () {
     {
       name: 'Doduo',
       height: 10,
-      type: ['normal', 'flying']
+      type: ['normal, flying']
     },
 
     {
@@ -21,30 +21,42 @@ let pokemonRepository = (function () {
   ];
 
   function add(pokemon) {
-    pokemonList.push(pokemon);
+    if (
+      typeof pokemon === "object" &&
+      "name" in pokemon &&
+      "height" in pokemon &&
+      "type" in pokemon
+    ) {
+      repository.push(pokemon);
+    } else {
+      console.log("pokemon is not correct");
+    }
   }
 
   function getAll() {
     return pokemonList;
   }
 
+  function addListItem(pokemon){
+    let unorderedList = document.querySelector('.pokemon-ul');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name + ' (type: ' + pokemon.type + ') (height: ' + pokemon.height + ') ';
+    button.classList.add('pokemon-button');
+    listItem.appendChild(button);
+    unorderedList.appendChild(listItem);
+  }
+
   return{
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
   };
 })()
 
 
 //This section lists the Pokemons' names with their heights with a forEach loop.
 
-function displayDetails(item){
-  document.write('<p>' + item.name + ' (type: ' + item.type + ') (height: ' + item.height + ') ');
-  if (item.height > 9){
-    document.write(' - Wow, that\'s big!');
-  };
-  document.write('</p>');
-};
-
 pokemonRepository.getAll().forEach(
-  displayDetails
-)
+  pokemonRepository.addListItem
+);
