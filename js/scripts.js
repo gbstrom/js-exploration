@@ -19,6 +19,7 @@ let pokemonRepository = (function () {
 
     let unorderedList = document.querySelector('.pokemon-ul');
     let listItem = document.createElement('li');
+    listItem.classList.add('list-group-item');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
     button.classList.add('pokemon-button');
@@ -109,7 +110,6 @@ let pokemonRepository = (function () {
         // We only want to close if the user clicks directly on the overlay
         let target = e.target;
         if (target === modalContainer) {
-        //I am confused here. Why isn't it '!==' here? We only want to close the modal if the user clicks somewhere outside the modal, not inside. this code does that, but I don't understand why. PUZZLE RESOLVED (partly) because the container covers the whole window area thanks to the CSS. I still don't understand why clicking inside the modal itself doesn't trigger this code, since after all clicking on the modal seems as if it would count as clicking on the modalContainer. But I will assume it's because I'm wrong about that, and that the modalContainer is not clickable if the modal is on top of it.
           hideModal();
         }
       });
