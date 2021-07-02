@@ -21,8 +21,11 @@ let pokemonRepository = (function () {
     let listItem = document.createElement('li');
     listItem.classList.add('list-group-item');
     let button = document.createElement('button');
+    button.classList.add('btn');
+    button.classList.add('btn-primary');
+    button.classList.add('btn-block');
+    button.setAttribute("type", "button");
     button.innerText = pokemon.name;
-    button.classList.add('pokemon-button');
     listItem.appendChild(button);
     unorderedList.appendChild(listItem);
 

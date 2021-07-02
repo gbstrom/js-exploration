@@ -17,8 +17,11 @@ ul {
   margin: auto;
 }
 
-/* This section formats the pokemon buttons */
+/* This section specifies the original format for the pokemon buttons that has
+been superceded by bootstrap, so I will comment it out until (perhaps) it is 
+needed again. */
 
+/*
 .pokemon-button {
   border: none;
   display: inline-block;
@@ -33,6 +36,7 @@ ul {
   width: 100%;
   margin: 0 auto;
 }
+*/
 
 /* This section formats the modal */
 
