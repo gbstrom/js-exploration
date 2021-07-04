@@ -24,9 +24,9 @@ let pokemonRepository = (function () {
     button.classList.add('btn');
     button.classList.add('btn-primary');
     button.classList.add('btn-block');
-    button.setAttribute("type", "button");
-    button.setAttribute("data-toggle", "modal");
-    button.dataset.target = "#pokemonModal";
+    button.setAttribute('type', 'button');
+    button.setAttribute('data-toggle', 'modal');
+    button.dataset.target = '#pokemonModal';
     button.innerText = pokemon.name;
     listItem.appendChild(button);
     unorderedList.appendChild(listItem);
@@ -52,7 +52,7 @@ let pokemonRepository = (function () {
         add(pokemon);
       });
     }).catch(function (e) {
-      console.error(e);
+      alert.error(e);
     })
   }
 
@@ -68,19 +68,18 @@ let pokemonRepository = (function () {
       item.height = details.height;
       item.types = details.types;
     }).catch(function (e) {
-      console.error(e);
+      alert.error(e);
     });
   }
 
-  //This function sends pokemon details to the moczl.
+  //This function sends pokemon details to the modal.
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
-      let modalContainer = document.querySelector('#pokemonModal');
 
       // This section puts info about the selected pokemon into the modal.
 
-      let modalTitle = document.querySelector("#modalTitle");
+      let modalTitle = document.querySelector('#modalTitle');
       modalTitle.innerText = pokemon.name;
       let contentContainer = document.querySelector('.modal-body');
       contentContainer.innerText = 'height: ' + pokemon.height;
@@ -91,7 +90,7 @@ let pokemonRepository = (function () {
 
       contentContainer.appendChild(imageElement);
     });
-  };
+  }
 
   //This section makes these functions callable outside the IIFE.
 
