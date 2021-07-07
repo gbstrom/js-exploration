@@ -94,13 +94,7 @@ let pokemonRepository = (function () {
 
   //This section makes these functions callable outside the IIFE.
 
-  return{
-    add: add,
-    getAll: getAll,
-    addListItem: addListItem,
-    loadList: loadList,
-    loadDetails: loadDetails
-  };
+  return{add, getAll, addListItem, loadList, loadDetails};
 })()
 
 
@@ -112,3 +106,17 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
+
+//This section makes the search box work
+
+document.getElementById('search-term').addEventListener('input', e => {
+  let searchTerm = e.target.value;
+  let buttons = document.getElementsByClassName('btn-block');
+  for (let i = 0; i < buttons.length; i ++){
+    if (buttons[i].innerText.toLowerCase().includes(searchTerm.toLowerCase())){
+      buttons[i].parentNode.style.display = 'block';
+    } else {
+      buttons[i].parentNode.style.display = 'none';
+    }
+  }
+})
