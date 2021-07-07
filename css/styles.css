@@ -16,6 +16,17 @@ ul {
   margin: auto;
 }
 
+.modal-pokemon-image {
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  transition: opacity 1s;
+}
+
+.modal-pokemon-image.loaded {
+  opacity: 1;
+}
+
 /* These are media queries that adjust font sizes in response to screen size variations. */
 
 @media all and (max-width: 500px) {

@@ -87,6 +87,7 @@ let pokemonRepository = (function () {
       let imageElement = document.createElement('img');
       imageElement.classList.add('modal-pokemon-image');
       imageElement.src = pokemon.imageUrl;
+      setTimeout(function() {imageElement.classList.add('loaded')}, 500)
 
       contentContainer.appendChild(imageElement);
     });
