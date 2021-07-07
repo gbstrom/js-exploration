@@ -40,10 +40,10 @@ let pokemonRepository = (function () {
 
   //This section is the code for fetching Pokemon data from the Pokemon API.
 
-  function loadList() {
-    return fetch(apiUrl).then(function (response) {
-      return response.json();
-    }).then(function (json) {
+  async function loadList() {
+    try {
+      let response = await fetch(apiUrl);
+      let json = await response.json();
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
@@ -51,25 +51,24 @@ let pokemonRepository = (function () {
         };
         add(pokemon);
       });
-    }).catch(function (e) {
+    } catch(e) {
       alert.error(e);
-    })
+    }
   }
 
   //This section is the code for extracting Pokemon details from detailsUrl.
 
-  function loadDetails(item) {
+  async function loadDetails(item) {
     let url = item.detailsUrl;
-    return fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (details) {
-      // Now we add the details to the item
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      item.types = details.types;
-    }).catch(function (e) {
+    try {
+      let response = await fetch(url);
+      let json = await response.json();
+      item.imageUrl = json.sprites.front_default;
+      item.height = json.height;
+      item.types = json.types;
+    } catch(e) {
       alert.error(e);
-    });
+    }
   }
 
   //This function sends pokemon details to the modal.

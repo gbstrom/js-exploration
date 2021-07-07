@@ -1,6 +1,6 @@
 {
     "env": {
-        "es6": true,
+        "es8": true,
         "browser": true
     },
     "extends": [
